@@ -1,6 +1,6 @@
 import http, { Server } from 'http';
 import express, { Response, Request } from 'express';
-import logger from './common/winston';
+import logger from './common/Logging/winston';
 import config from './config/appConfig';
 
 const app = express();

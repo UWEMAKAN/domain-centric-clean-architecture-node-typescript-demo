@@ -2,18 +2,18 @@ module.exports = {
   env: {
     es2020: true,
     node: true,
-    jest: true
+    jest: true,
+    typescript: true
   },
   extends: [
     'airbnb-base',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 11,
-    sourceType: 'module',
+    project: './tsconfig.json'
   },
   plugins: [
-    '@typescript-eslint',
+    'airbnb-typescript/base',
   ],
   rules: {
     'comma-dangle': ['error', 'never'],
