@@ -2,7 +2,7 @@ import IGetCustomersListQuery from './IGetCustomersListQuery';
 import CustomerModel from './CustomerModel';
 import ICustomerRepository from '../../interfaces/persistence/ICustomerRepository';
 
-class GetCustomerListQuery implements IGetCustomersListQuery {
+class GetCustomersListQuery implements IGetCustomersListQuery {
   private readonly _repository: ICustomerRepository;
 
   constructor(repository: ICustomerRepository) {
@@ -20,4 +20,4 @@ class GetCustomerListQuery implements IGetCustomersListQuery {
   }
 }
 
-export default GetCustomerListQuery;
+export default GetCustomersListQuery;
