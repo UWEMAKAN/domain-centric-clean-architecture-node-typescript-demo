@@ -1,46 +1,33 @@
-import IEntity from "../common/IEntity";
+import IEntity from '../common/IEntity';
 
 class Product implements IEntity {
-  /**
-   * class Product implements IEntity
-   * @param id product id: number
-   * @param name product name: string
-   * @param price product price: number
-   */
-  constructor(id: number, name: string, price: number) {
-    this._id = id;
-    this._name = name;
-    this._price = price;
+  private _id: number = Number();
+  private _name: string = String();
+  private _price: number = Number();
+
+  public set id(v: number) {
+    this._id = v;
   }
 
-  private _id: number;
-  private _name: string;
-  private _price: number;
-
-  public set Id(id: number) {
-    this._id = id;
-  }
-
-  public get Id(): number {
+  public get id(): number {
     return this._id;
   }
 
-  public set Name(name : string) {
-    this._name = name;
+  public set name(v: string) {
+    this._name = v;
   }
 
-  public get Name() : string {
+  public get name(): string {
     return this._name;
   }
 
-  public set Price(price : number) {
-    this._price = price;
+  public set price(v: number) {
+    this._price = v;
   }
 
-  public get Price() : number {
+  public get price(): number {
     return this._price;
   }
-
 }
 
 export default Product;

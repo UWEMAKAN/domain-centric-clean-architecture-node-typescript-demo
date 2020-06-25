@@ -1,32 +1,22 @@
 import IEntity from "../common/IEntity";
 
 class Employee implements IEntity {
-  /**
-   * class Employee implements IEntity
-   * @param id employee id: number
-   * @param name employee name: string
-   */
-  constructor(id: number, name: string) {
-    this._id = id;
-    this._name = name;
+  private _id: number = Number();
+  private _name: string = String();
+
+  public set id(v: number) {
+    this._id = v;
   }
 
-  private _id: number;
-  private _name: string;
-
-  public set Id(id: number) {
-    this._id = id;
-  }
-
-  public get Id(): number {
+  public get id(): number {
     return this._id;
   }
 
-  public set Name(name : string) {
-    this._name = name;
+  public set name(v : string) {
+    this._name = v;
   }
 
-  public get Name() : string {
+  public get name() : string {
     return this._name;
   }
 }

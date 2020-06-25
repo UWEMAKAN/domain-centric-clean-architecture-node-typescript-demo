@@ -1,3 +1,3 @@
 export default interface IEntity {
-  Id: number;
+  id: number;
 };

@@ -4,93 +4,82 @@ import Employee from '../employees/Employee';
 import Product from '../products/Product';
 
 class Sale implements IEntity {
-  constructor(id: number, date: Date, customer: Customer, employee: Employee, product: Product, quantity: number, unitPrice: number) {
-    this._id = id;
-    this._date = date;
-    this._customer = customer;
-    this._employee = employee;
-    this._product = product;
-    this._quantity = quantity;
-    this._unitPrice = unitPrice;
-    this._totalPrice = quantity * unitPrice;
-  }
-
-  private _id: number;
-  private _quantity: number;
-  private _totalPrice: number;
-  private _unitPrice: number;
-  private _date: Date;
-  private _customer: Customer;
-  private _employee: Employee;
-  private _product: Product;
+  private _id: number = Number();
+  private _quantity: number = Number();
+  private _totalPrice: number = Number();
+  private _unitPrice: number = Number();
+  private _date: Date = new Date();
+  private _customer: Customer = new Customer();
+  private _employee: Employee = new Employee();
+  private _product: Product = new Product();
 
   private updateTotalPrice(): void {
     this._totalPrice = this._unitPrice * this._quantity;
   }
 
-  public set Product(v : Product) {
+  public set product(v : Product) {
     this._product = v;
   }
 
-  public get Product() : Product {
+  public get product() : Product {
     return this._product;
   }
 
-  public set Employee(v : Employee) {
+  public set employee(v : Employee) {
     this._employee = v;
   }
 
-  public get Employee() : Employee {
+  public get employee() : Employee {
     return this._employee;
   }
 
-  public set Customer(v : Customer) {
+  public set customer(v : Customer) {
     this._customer = v;
   }
 
-  public get Customer() : Customer {
+  public get customer() : Customer {
     return this._customer;
   }
 
-  public set Date(v : Date) {
+  public set date(v : Date) {
     this._date = v;
   }
 
-  public get Date() : Date {
+  public get date() : Date {
     return this._date;
   }
 
-  public set TotalPrice(v : number) {
+  public set totalPrice(v : number) {
     this._totalPrice = v;
   }
 
-  public get TotalPrice() : number {
+  public get totalPrice() : number {
     return this._totalPrice;
   }
 
-  public set Quantity(v: number) {
+  public set quantity(v: number) {
     this._quantity = v;
     this.updateTotalPrice();
   }
 
-  public get Quantity(): number {
+  public get quantity(): number {
     return this._quantity;
   }
 
-  public set Id(v: number) {
+  public set id(v: number) {
     this._id = v;
   }
 
-  public get Id(): number {
+  public get id(): number {
     return this._id;
   }
 
-  public set UnitPrice(v: number) {
+  public set unitPrice(v: number) {
     this._unitPrice = v;
     this.updateTotalPrice();
   }
 
-  public get UnitPrice(): number {
+  public get unitPrice(): number {
     return this._unitPrice;
   }
 }

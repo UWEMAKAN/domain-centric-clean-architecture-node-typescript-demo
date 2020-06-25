@@ -1,3 +1,3 @@
 export default interface IDateService {
-  GetDate(): Date;
+  getDate(): Date;
 }
