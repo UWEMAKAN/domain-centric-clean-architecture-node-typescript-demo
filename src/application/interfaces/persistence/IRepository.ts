@@ -1,6 +1,6 @@
 export default interface IRepository<T> {
-  getAll(): Array<T>;
-  get(id: number): any;
-  add(entity: T): void;
-  remove(entity: T): any;
+  getAll(): Promise<Array<T>>;
+  get(id: number): Promise<T>;
+  add(entity: T): Promise<void>;
+  remove(entity: T): Promise<void>;
 }

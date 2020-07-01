@@ -10,12 +10,12 @@ class GetSaleDetailQuery implements IGetSaleDetailQuery {
     this._repository = repository;
   }
 
-  public execute(id: number): SaleDetailModel {
-    const sale: Sale = this._repository.get(id);
+  public async execute(id: number): Promise<SaleDetailModel> {
+    const sale: Sale = await this._repository.get(id);
     return new SaleDetailModel(
-      sale.id, sale.date, sale.customer.name,
-      sale.employee.name, sale.product.name,
-      sale.unitPrice, sale.quantity, sale.totalPrice);
+      sale.Id, sale.Date, sale.Customer.Name,
+      sale.Employee.Name, sale.Product.Name,
+      sale.UnitPrice, sale.Quantity, sale.TotalPrice);
   }
 }
 

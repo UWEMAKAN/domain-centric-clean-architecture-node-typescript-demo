@@ -10,12 +10,12 @@ class GetSalesListQuery implements IGetSalesListQuery {
     this._repository = repository;
   }
 
-  public execute(): Array<SalesListItemModel> {
-    const sales: Array<Sale> = this._repository.getAll();
+  public async execute(): Promise<Array<SalesListItemModel>> {
+    const sales: Array<Sale> = await this._repository.getAll();
     return sales.map((p) => {
       return new SalesListItemModel(
-        p.id, p.date, p.customer.name, p.employee.name,
-        p.product.name, p.unitPrice, p.quantity, p.totalPrice);
+        p.Id, p.Date, p.Customer.Name, p.Employee.Name,
+        p.Product.Name, p.UnitPrice, p.Quantity, p.TotalPrice);
     });
   }
 }

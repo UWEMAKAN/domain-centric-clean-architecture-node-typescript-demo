@@ -13,5 +13,9 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/src/common',
     '<rootDir>/src/config'
-  ]
+  ],
+  // additionals
+  clearMocks: true,
+  maxWorkers: 1,
+  preset: 'ts-jest'
 };

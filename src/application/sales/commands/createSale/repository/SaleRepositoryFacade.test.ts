@@ -17,35 +17,39 @@ const facade: SaleRepositoryFacade = new SaleRepositoryFacade(
 );
 
 describe('SaleRepositoryFacade', () => {
-  it('getCustomer should return a Customer object', () => {
+  it('getCustomer should return a Customer object', async (done) => {
     const id: number = 2;
-    const result: Customer = facade.getCustomer(id);
+    const result: Customer = await facade.getCustomer(id);
 
     expect.assertions(1);
     expect(result).toBeInstanceOf(Customer);
+    done();
   });
 
-  it('getEmployee should return an Employee object', () => {
+  it('getEmployee should return an Employee object', async (done) => {
     const id: number = 2;
-    const result: Employee = facade.getEmployee(id);
+    const result: Employee = await facade.getEmployee(id);
 
     expect.assertions(1);
     expect(result).toBeInstanceOf(Employee);
+    done();
   });
 
-  it('getProduct should return a Product object', () => {
+  it('getProduct should return a Product object', async (done) => {
     const id: number = 2;
-    const result: Product = facade.getProduct(id);
+    const result: Product = await facade.getProduct(id);
 
     expect.assertions(1);
     expect(result).toBeInstanceOf(Product);
+    done();
   });
 
-  it('getSale should return a Sale object', () => {
+  it('getSale should return a Sale object', async (done) => {
     const sale: Sale = mockEntities.sales[2];
-    facade.addSale(sale);
+    await facade.addSale(sale);
 
     expect.assertions(1);
     expect(mockEntities.saleRepository.add).toHaveBeenCalled();
+    done();
   });
 });

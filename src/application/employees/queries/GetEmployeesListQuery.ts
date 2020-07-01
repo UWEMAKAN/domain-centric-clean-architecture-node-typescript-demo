@@ -9,12 +9,12 @@ class GetEmployeesListQuery implements IGetEmployeesListQuery {
     this._repository = repository;
   }
 
-  public execute(): Array<EmployeeModel> {
-    const employees = this._repository.getAll();
+  public async execute(): Promise<Array<EmployeeModel>> {
+    const employees = await this._repository.getAll();
     return employees.map((e) => {
       let employee: EmployeeModel = new EmployeeModel();
-      employee.id = e.id;
-      employee.name = e.name;
+      employee.Id = e.Id;
+      employee.Name = e.Name;
       return employee;
     });
   }

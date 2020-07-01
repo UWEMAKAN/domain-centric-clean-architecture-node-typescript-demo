@@ -1,32 +1,39 @@
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
 import IEntity from '../common/IEntity';
 
+@Entity()
 class Product implements IEntity {
-  private _id: number = Number();
-  private _name: string = String();
-  private _price: number = Number();
+  @PrimaryGeneratedColumn()
+  private id: number;
 
-  public set id(v: number) {
-    this._id = v;
+  @Column()
+  private name: string;
+
+  @Column()
+  private price: number;
+
+  public set Id(v: number) {
+    this.id = v;
   }
 
-  public get id(): number {
-    return this._id;
+  public get Id(): number {
+    return this.id;
   }
 
-  public set name(v: string) {
-    this._name = v;
+  public set Name(v: string) {
+    this.name = v;
   }
 
-  public get name(): string {
-    return this._name;
+  public get Name(): string {
+    return this.name;
   }
 
-  public set price(v: number) {
-    this._price = v;
+  public set Price(v: number) {
+    this.price = v;
   }
 
-  public get price(): number {
-    return this._price;
+  public get Price(): number {
+    return this.price;
   }
 }
 

@@ -9,12 +9,12 @@ class GetCustomersListQuery implements IGetCustomersListQuery {
     this._repository = repository;
   }
 
-  public execute(): Array<CustomerModel> {
-    const customers = this._repository.getAll();
+  public async execute(): Promise<Array<CustomerModel>> {
+    const customers = await this._repository.getAll();
     return customers.map((c) => {
       let customer: CustomerModel = new CustomerModel();
-      customer.id = c.id;
-      customer.name = c.name;
+      customer.Id = c.Id;
+      customer.Name = c.Name;
       return customer;
     });
   }

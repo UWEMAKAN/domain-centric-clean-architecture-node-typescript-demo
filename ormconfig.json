@@ -1,0 +1,32 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "test",
+    "password": "test",
+    "database": "clean_architecture",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["dist/domain/**/*.js"],
+    "cli": {
+      "entitiesDir": "dist/domain"
+    }
+  },
+  {
+    "name": "test",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "test",
+    "password": "test",
+    "database": "test",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["src/domain/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/domain"
+    }
+  }
+]

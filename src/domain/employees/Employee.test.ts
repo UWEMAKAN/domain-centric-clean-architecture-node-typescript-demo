@@ -1,41 +1,30 @@
 import Employee from './Employee';
+import * as mockEntities from '../../../tools/mockEntities';
 
 it('should create a employee with field id: number and name: string', () => {
-  const id: number = 1;
-  const name: string = 'Isaac';
-  const employee: Employee = new Employee();
-  employee.id = id;
-  employee.name = name;
+  const employee: Employee = mockEntities.employees[1];
 
   expect.assertions(2);
   expect(employee instanceof Employee).toBeTruthy();
   expect(employee).toMatchObject({
-    _id: expect.any(Number),
-    _name: expect.any(String)
+    id: expect.any(Number),
+    name: expect.any(String)
   });
 });
 
 it('should set and get id', () => {
-  const id: number = 1;
-  const name: string = 'Isaac';
-  const employee: Employee = new Employee();
-  employee.id = id;
-  employee.name = name;
+  const employee: Employee = mockEntities.employees[1];
 
-  employee.id = 2;
+  employee.Id = 2;
 
   expect.assertions(1);
-  expect(employee.id).toEqual(2);
+  expect(employee.Id).toEqual(2);
 });
 
 it('should set and get name', () => {
-  const id: number = 1;
-  const name: string = 'Isaac';
-  const employee: Employee = new Employee();
-  employee.id = id;
-  employee.name = name;
+  const employee: Employee = mockEntities.employees[1];
 
-  employee.name = 'Kufre';
+  employee.Name = 'Kufre';
   expect.assertions(1);
-  expect(employee.name).toEqual('Kufre');
+  expect(employee.Name).toEqual('Kufre');
 });

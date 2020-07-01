@@ -7,12 +7,12 @@ import Sale from '../../../../../domain/sales/Sale';
 class SaleFactory implements ISaleFactory {
   public create(date: Date, customer: Customer, employee: Employee, product: Product, quantity: number) {
     const sale: Sale = new Sale();
-    sale.date = date;
-    sale.customer = customer;
-    sale.employee = employee;
-    sale.product = product;
-    sale.unitPrice = product.price;
-    sale.quantity = quantity;
+    sale.Date = date;
+    sale.Customer = customer;
+    sale.Employee = employee;
+    sale.Product = product;
+    sale.UnitPrice = product.Price;
+    sale.Quantity = quantity;
     return sale;
   }
 }

@@ -2,6 +2,9 @@ import http, { Server } from 'http';
 import express, { Response, Request } from 'express';
 import logger from './common/Logging/winston';
 import config from './config/appConfig';
+import { createConnection } from 'typeorm';
+
+createConnection();
 
 const app = express();
 config(app);

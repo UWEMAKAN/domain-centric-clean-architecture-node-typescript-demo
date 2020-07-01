@@ -19,121 +19,111 @@ const product: Product = new Product();
 const date: Date = new Date();
 const id: number = 1;
 const quantity: number = 5;
-const unitPrice: number = product.price;
+const unitPrice: number = product.Price;
 
 describe('Sale', () => {
   it('should create a sale object that is instance of the Sale class', () => {
     const sale = new Sale();
 
-    expect.assertions(2);
+    expect.assertions(1);
     expect(sale instanceof Sale).toBeTruthy();
-    expect(sale).toMatchObject({
-      _id: expect.any(Number),
-      _quantity: expect.any(Number),
-      _totalPrice: expect.any(Number),
-      _unitPrice: expect.any(Number),
-      _date: expect.any(Date),
-      _customer: expect.any(Customer),
-      _employee: expect.any(Employee),
-      _product: expect.any(Product)
-    });
   });
 
   it('should set and get id', () => {
     const sale = new Sale();
-    const oldId: number = sale.id;
-    sale.id = 2;
+    const oldId: number = sale.Id;
+    sale.Id = 2;
 
     expect.assertions(2);
-    expect(sale.id).toEqual(2);
-    expect(sale.id === oldId).toBeFalsy();
+    expect(sale.Id).toEqual(2);
+    expect(sale.Id === oldId).toBeFalsy();
   });
 
   it('should set and get date', () => {
     const sale = new Sale();
     const newDate: Date = new Date();
-    const oldDate: Date = sale.date;
-    sale.date = newDate;
+    const oldDate: Date = sale.Date;
+    sale.Date = newDate;
 
     expect.assertions(2);
-    expect(sale.date).toEqual(newDate);
-    expect(sale.date === oldDate).toBeFalsy();
+    expect(sale.Date).toEqual(newDate);
+    expect(sale.Date === oldDate).toBeFalsy();
   });
 
   it('should set and get customer', () => {
     const sale = new Sale();
     const newCustomer: Customer = new Customer();
-    const oldCustomer: Customer = sale.customer;
-    sale.customer = newCustomer;
+    const oldCustomer: Customer = sale.Customer;
+    sale.Customer = newCustomer;
 
     expect.assertions(2);
-    expect(sale.customer).toEqual(newCustomer);
-    expect(sale.customer === oldCustomer).toBeFalsy();
+    expect(sale.Customer).toEqual(newCustomer);
+    expect(sale.Customer === oldCustomer).toBeFalsy();
   });
 
   it('should set and get employee', () => {
     const sale = new Sale();
     const newEmployee: Employee = new Employee();
-    const oldEmployee: Employee = sale.employee;
-    sale.employee = newEmployee;
+    const oldEmployee: Employee = sale.Employee;
+    sale.Employee = newEmployee;
 
     expect.assertions(2);
-    expect(sale.employee).toEqual(newEmployee);
-    expect(sale.employee === oldEmployee).toBeFalsy();
+    expect(sale.Employee).toEqual(newEmployee);
+    expect(sale.Employee === oldEmployee).toBeFalsy();
   });
 
   it('should set and get product', () => {
     const sale = new Sale();
     const newProduct: Product = new Product();
-    const oldProduct: Product = sale.product;
-    sale.product = newProduct;
+    const oldProduct: Product = sale.Product;
+    sale.Product = newProduct;
 
     expect.assertions(2);
-    expect(sale.product).toEqual(newProduct);
-    expect(sale.product === oldProduct).toBeFalsy();
+    expect(sale.Product).toEqual(newProduct);
+    expect(sale.Product === oldProduct).toBeFalsy();
   });
 
   it('should set and get unitPrice', () => {
     const sale = new Sale();
     const newUnitPrice: number = 300;
-    const oldUnitPrice: number = sale.unitPrice;
-    sale.unitPrice = newUnitPrice;
+    const oldUnitPrice: number = sale.UnitPrice;
+    sale.UnitPrice = newUnitPrice;
 
     expect.assertions(2);
-    expect(sale.unitPrice).toEqual(newUnitPrice);
-    expect(sale.unitPrice === oldUnitPrice).toBeFalsy();
+    expect(sale.UnitPrice).toEqual(newUnitPrice);
+    expect(sale.UnitPrice === oldUnitPrice).toBeFalsy();
   });
 
   it('should set and get quantity', () => {
     const sale = new Sale();
     const newQuantity: number = 25;
-    const oldQuantity: number = sale.quantity;
-    sale.quantity = newQuantity;
+    const oldQuantity: number = sale.Quantity;
+    sale.Quantity = newQuantity;
 
     expect.assertions(2);
-    expect(sale.quantity).toEqual(newQuantity);
-    expect(sale.quantity === oldQuantity).toBeFalsy();
+    expect(sale.Quantity).toEqual(newQuantity);
+    expect(sale.Quantity === oldQuantity).toBeFalsy();
   });
 
   it('set unitPrice should recompute totalPrice', () => {
     const sale = new Sale();
-    sale.quantity = 10;
+    sale.Quantity = 10;
     const newUnitPrice: number = 300;
-    const oldTotalPrice: number = sale.totalPrice;
-    sale.unitPrice = newUnitPrice;
+    const oldTotalPrice: number = sale.TotalPrice;
+    sale.UnitPrice = newUnitPrice;
 
     expect.assertions(1);
-    expect(sale.totalPrice).toEqual(3000);
+    expect(sale.TotalPrice).toEqual(3000);
   });
 
   it('set quantity should recompute totalPrice', () => {
     const sale = new Sale();
-    sale.unitPrice = 10;
+    sale.UnitPrice = 10;
     const newQuantity: number = 25;
-    const oldTotalPrice: number = sale.totalPrice;
-    sale.quantity = newQuantity;
+    const oldTotalPrice: number = sale.TotalPrice;
+    sale.Quantity = newQuantity;
 
     expect.assertions(1);
-    expect(sale.totalPrice).toEqual(250);
+    expect(sale.TotalPrice).toEqual(250);
   });
 });

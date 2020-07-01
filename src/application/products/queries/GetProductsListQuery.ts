@@ -9,13 +9,13 @@ class GetProductsListQuery implements IGetProductsListQuery {
     this._repository = repository;
   }
 
-  public execute(): Array<ProductModel> {
-    const products = this._repository.getAll();
+  public async execute(): Promise<Array<ProductModel>> {
+    const products = await this._repository.getAll();
     return products.map((p) => {
       let product: ProductModel = new ProductModel();
-      product.id = p.id;
-      product.name = p.name;
-      product.price = p.price;
+      product.Id = p.Id;
+      product.Name = p.Name;
+      product.Price = p.Price;
       return product;
     });
   }

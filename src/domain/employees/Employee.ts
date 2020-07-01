@@ -1,23 +1,28 @@
-import IEntity from "../common/IEntity";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import IEntity from '../common/IEntity';
 
+@Entity()
 class Employee implements IEntity {
-  private _id: number = Number();
-  private _name: string = String();
+  @PrimaryGeneratedColumn()
+  private id: number;
 
-  public set id(v: number) {
-    this._id = v;
+  @Column()
+  private name: string;
+
+  public set Id(v: number) {
+    this.id = v;
   }
 
-  public get id(): number {
-    return this._id;
+  public get Id(): number {
+    return this.id;
   }
 
-  public set name(v : string) {
-    this._name = v;
+  public set Name(v: string) {
+    this.name = v;
   }
 
-  public get name() : string {
-    return this._name;
+  public get Name(): string {
+    return this.name;
   }
 }
 

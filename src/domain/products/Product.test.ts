@@ -5,16 +5,16 @@ it('should create a product with field id: number, name: string, and price: numb
   const name: string = 'T-Shirt';
   const price: number = 200;
   const product: Product = new Product();
-  product.id = id;
-  product.name = name;
-  product.price = price;
+  product.Id = id;
+  product.Name = name;
+  product.Price = price;
 
   expect.assertions(2);
   expect(product instanceof Product).toBeTruthy();
   expect(product).toMatchObject({
-    _id: expect.any(Number),
-    _name: expect.any(String),
-    _price: expect.any(Number)
+    id: expect.any(Number),
+    name: expect.any(String),
+    price: expect.any(Number)
   });
 });
 
@@ -23,14 +23,14 @@ it('should set and get id', () => {
   const name: string = 'Snickers';
   const price: number = 200;
   const product: Product = new Product();
-  product.id = id;
-  product.name = name;
-  product.price = price;
+  product.Id = id;
+  product.Name = name;
+  product.Price = price;
 
-  product.id = 2;
+  product.Id = 2;
 
   expect.assertions(1);
-  expect(product.id).toEqual(2);
+  expect(product.Id).toEqual(2);
 });
 
 it('should set and get name', () => {
@@ -38,14 +38,14 @@ it('should set and get name', () => {
   const name: string = 'Snickers';
   const price: number = 200;
   const product: Product = new Product();
-  product.id = id;
-  product.name = name;
-  product.price = price;
+  product.Id = id;
+  product.Name = name;
+  product.Price = price;
 
-  product.name = 'Jeans';
+  product.Name = 'Jeans';
 
   expect.assertions(1);
-  expect(product.name).toEqual('Jeans');
+  expect(product.Name).toEqual('Jeans');
 });
 
 it('should set and get price', () => {
@@ -53,12 +53,12 @@ it('should set and get price', () => {
   const name: string = 'Snickers';
   const price: number = 200;
   const product: Product = new Product();
-  product.id = id;
-  product.name = name;
-  product.price = price;
+  product.Id = id;
+  product.Name = name;
+  product.Price = price;
 
-  product.price = 150;
+  product.Price = 150;
 
   expect.assertions(1);
-  expect(product.price).toEqual(150);
+  expect(product.Price).toEqual(150);
 });

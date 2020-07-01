@@ -7,18 +7,19 @@ describe('GetProductsListQuery', () => {
     jest.clearAllMocks();
   });
 
-  it('execute should return an Array of ProductModel', () => {
+  it('execute should return an Array of ProductModel', async (done) => {
     const query: GetProductsListQuery = new GetProductsListQuery(mockEntities.productRepository);
-    const results = query.execute();
+    const results = await query.execute();
 
     expect.assertions(4);
     expect(results).toBeInstanceOf(Array);
     expect(mockEntities.productRepository.getAll).toHaveBeenCalledTimes(1);
     expect(results[0]).toBeInstanceOf(ProductModel);
     expect(results[0]).toMatchObject({
-      _id: expect.any(Number),
-      _name: expect.any(String),
-      _price: expect.any(Number)
+      id: expect.any(Number),
+      name: expect.any(String),
+      price: expect.any(Number)
     });
+    done();
   });
 });

@@ -16,22 +16,12 @@ const date: Date = new Date();
 describe('SaleFactory', () => {
   it('should create a Sale object', () => {
     const sale: Sale = factory.create(date, customer, employee, product, quantity);
-    expect.assertions(7);
-    expect(sale).toMatchObject({
-      _id: expect.any(Number),
-      _quantity: expect.any(Number),
-      _totalPrice: expect.any(Number),
-      _unitPrice: expect.any(Number),
-      _date: expect.any(Date),
-      _customer: expect.any(Customer),
-      _employee: expect.any(Employee),
-      _product: expect.any(Product)
-    });
-    expect(sale.date).toEqual(date);
-    expect(sale.customer).toEqual(customer);
-    expect(sale.employee).toEqual(employee);
-    expect(sale.product).toEqual(product);
-    expect(sale.unitPrice).toEqual(product.price);
-    expect(sale.quantity).toEqual(quantity);
+    expect.assertions(6);
+    expect(sale.Date).toEqual(date);
+    expect(sale.Customer).toEqual(customer);
+    expect(sale.Employee).toEqual(employee);
+    expect(sale.Product).toEqual(product);
+    expect(sale.UnitPrice).toEqual(product.Price);
+    expect(sale.Quantity).toEqual(quantity);
   });
 });

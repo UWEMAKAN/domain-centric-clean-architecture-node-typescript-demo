@@ -4,8 +4,8 @@ import Product from '../../../../../domain/products/Product';
 import Sale from '../../../../../domain/sales/Sale';
 
 export default interface ISaleRepositoryFacade {
-  getCustomer(customerId: number): Customer;
-  getEmployee(employeeId: number): Employee;
-  getProduct(productId: number): Product;
-  addSale(sale: Sale): void;
+  getCustomer(customerId: number): Promise<Customer>;
+  getEmployee(employeeId: number): Promise<Employee>;
+  getProduct(productId: number): Promise<Product>;
+  addSale(sale: Sale): Promise<void>;
 }

@@ -1,86 +1,106 @@
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
 import IEntity from '../common/IEntity';
 import Customer from '../customers/Customer';
 import Employee from '../employees/Employee';
 import Product from '../products/Product';
 
+@Entity()
 class Sale implements IEntity {
-  private _id: number = Number();
-  private _quantity: number = Number();
-  private _totalPrice: number = Number();
-  private _unitPrice: number = Number();
-  private _date: Date = new Date();
-  private _customer: Customer = new Customer();
-  private _employee: Employee = new Employee();
-  private _product: Product = new Product();
+  @PrimaryGeneratedColumn()
+  private id: number;
+
+  @Column()
+  private quantity: number;
+
+  @Column()
+  private totalPrice: number;
+
+  @Column()
+  private unitPrice: number;
+
+  @Column()
+  private date: Date;
+
+  @OneToOne(type => Customer)
+  @JoinColumn()
+  private customer: Customer;
+
+  @OneToOne(type => Employee)
+  @JoinColumn()
+  private employee: Employee;
+
+  @OneToOne(type => Product)
+  @JoinColumn()
+  private product: Product;
 
   private updateTotalPrice(): void {
-    this._totalPrice = this._unitPrice * this._quantity;
+    this.totalPrice = this.unitPrice * this.quantity;
   }
 
-  public set product(v : Product) {
-    this._product = v;
+  public set Product(v : Product) {
+    this.product = v;
   }
 
-  public get product() : Product {
-    return this._product;
+  public get Product() : Product {
+    return this.product;
   }
 
-  public set employee(v : Employee) {
-    this._employee = v;
+  public set Employee(v : Employee) {
+    this.employee = v;
   }
 
-  public get employee() : Employee {
-    return this._employee;
+  public get Employee() : Employee {
+    return this.employee;
   }
 
-  public set customer(v : Customer) {
-    this._customer = v;
+  public set Customer(v : Customer) {
+    this.customer = v;
   }
 
-  public get customer() : Customer {
-    return this._customer;
+  public get Customer() : Customer {
+    return this.customer;
   }
 
-  public set date(v : Date) {
-    this._date = v;
+  public set Date(v : Date) {
+    this.date = v;
   }
 
-  public get date() : Date {
-    return this._date;
+  public get Date() : Date {
+    return this.date;
   }
 
-  public set totalPrice(v : number) {
-    this._totalPrice = v;
+  public set TotalPrice(v : number) {
+    this.totalPrice = v;
   }
 
-  public get totalPrice() : number {
-    return this._totalPrice;
+  public get TotalPrice() : number {
+    return this.totalPrice;
   }
 
-  public set quantity(v: number) {
-    this._quantity = v;
+  public set Quantity(v: number) {
+    this.quantity = v;
     this.updateTotalPrice();
   }
 
-  public get quantity(): number {
-    return this._quantity;
+  public get Quantity(): number {
+    return this.quantity;
   }
 
-  public set id(v: number) {
-    this._id = v;
+  public set Id(v: number) {
+    this.id = v;
   }
 
-  public get id(): number {
-    return this._id;
+  public get Id(): number {
+    return this.id;
   }
 
-  public set unitPrice(v: number) {
-    this._unitPrice = v;
+  public set UnitPrice(v: number) {
+    this.unitPrice = v;
     this.updateTotalPrice();
   }
 
-  public get unitPrice(): number {
-    return this._unitPrice;
+  public get UnitPrice(): number {
+    return this.unitPrice;
   }
 }
 

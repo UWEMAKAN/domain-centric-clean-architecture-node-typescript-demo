@@ -2,37 +2,33 @@ import * as mockEntities from '../../../../../tools/mockEntities';
 import Sale from '../../../../domain/sales/Sale';
 import GetSaleDetailQuery from './GetSaleDetailQuery';
 import SaleDetailModel from './SaleDetailModel';
+import { doesNotMatch } from 'assert';
 
-const repository = {
-  getAll: jest.fn().mockReturnValue(mockEntities.sales),
-  get: jest.fn((id: number) => mockEntities.sales[id]),
-  add: jest.fn(),
-  remove: jest.fn()
-};
-const query: GetSaleDetailQuery = new GetSaleDetailQuery(repository);
+const query: GetSaleDetailQuery = new GetSaleDetailQuery(mockEntities.saleRepository);
 
 describe('GetSaleDetailQuery', () => {
-  it('should return a Sale object with correct properties and values', () => {
-    const result: SaleDetailModel = query.execute(1);
+  it('should return a Sale object with correct properties and values', async (done) => {
+    const result: SaleDetailModel = await query.execute(1);
     const sale: Sale = mockEntities.sales[1];
     expect.assertions(9);
     expect(result).toMatchObject({
-      _id: expect.any(Number),
-      _date: expect.any(Date),
-      _customerName: expect.any(String),
-      _employeeName: expect.any(String),
-      _productName: expect.any(String),
-      _unitPrice: expect.any(Number),
-      _quantity: expect.any(Number),
-      _totalPrice: expect.any(Number)
+      id: expect.any(Number),
+      date: expect.any(Date),
+      customerName: expect.any(String),
+      employeeName: expect.any(String),
+      productName: expect.any(String),
+      unitPrice: expect.any(Number),
+      quantity: expect.any(Number),
+      totalPrice: expect.any(Number)
     });
-    expect(result.id).toEqual(sale.id);
-    expect(result.date).toEqual(sale.date);
-    expect(result.customerName).toEqual(sale.customer.name);
-    expect(result.employeeName).toEqual(sale.employee.name);
-    expect(result.productName).toEqual(sale.product.name);
-    expect(result.unitPrice).toEqual(sale.unitPrice);
-    expect(result.quantity).toEqual(sale.quantity);
-    expect(result.totalPrice).toEqual(sale.totalPrice);
+    expect(result.Id).toEqual(sale.Id);
+    expect(result.Date).toEqual(sale.Date);
+    expect(result.CustomerName).toEqual(sale.Customer.Name);
+    expect(result.EmployeeName).toEqual(sale.Employee.Name);
+    expect(result.ProductName).toEqual(sale.Product.Name);
+    expect(result.UnitPrice).toEqual(sale.UnitPrice);
+    expect(result.Quantity).toEqual(sale.Quantity);
+    expect(result.TotalPrice).toEqual(sale.TotalPrice);
+    done();
   });
 });

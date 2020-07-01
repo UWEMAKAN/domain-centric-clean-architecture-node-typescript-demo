@@ -1,38 +1,38 @@
 export default class CreateSaleModel {
-  private _customerId: number = Number();
-  private _employeeId: number = Number();
-  private _productId: number = Number();
-  private _quantity: number = Number();
+  private customerId: number;
+  private employeeId: number;
+  private productId: number;
+  private quantity: number;
 
-  public set quantity(v : number) {
-    this._quantity = v;
+  public set Quantity(v : number) {
+    this.quantity = v;
   }
 
-  public get quantity() : number {
-    return this._quantity;
+  public get Quantity() : number {
+    return this.quantity;
   }
 
-  public set productId(v : number) {
-    this._productId = v;
+  public set ProductId(v : number) {
+    this.productId = v;
   }
 
-  public get productId() : number {
-    return this._productId;
+  public get ProductId() : number {
+    return this.productId;
   }
 
-  public set employeeId(v : number) {
-    this._employeeId = v;
+  public set EmployeeId(v : number) {
+    this.employeeId = v;
   }
 
-  public get employeeId() : number {
-    return this._employeeId;
+  public get EmployeeId() : number {
+    return this.employeeId;
   }
 
-  public set customerId(v : number) {
-    this._customerId = v;
+  public set CustomerId(v : number) {
+    this.customerId = v;
   }
 
-  public get customerId() : number {
-    return this._customerId;
+  public get CustomerId() : number {
+    return this.customerId;
   }
 }

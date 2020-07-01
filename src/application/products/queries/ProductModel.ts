@@ -1,29 +1,29 @@
 export default class ProductModel {
-  private _id: number = Number();
-  private _name: string = String();
-  private _price: number = Number();
+  private id: number;
+  private name: string;
+  private price: number;
 
-  public set price(v : number) {
-    this._price = v;
+  public set Price(v : number) {
+    this.price = v;
   }
 
-  public get price() : number {
-    return this._price;
+  public get Price() : number {
+    return this.price;
   }
 
-  public set name(v : string) {
-    this._name = v;
+  public set Name(v : string) {
+    this.name = v;
   }
 
-  public get name() : string {
-    return this._name;
+  public get Name() : string {
+    return this.name;
   }
 
-  public set id(v : number) {
-    this._id = v;
+  public set Id(v : number) {
+    this.id = v;
   }
 
-  public get id() : number {
-    return this._id;
+  public get Id() : number {
+    return this.id;
   }
 }

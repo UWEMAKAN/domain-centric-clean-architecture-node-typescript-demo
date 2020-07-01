@@ -4,14 +4,14 @@ it('should create a customer with field id: number and name: string', () => {
   const id: number = 1;
   const name: string = 'Uwem';
   const customer: Customer = new Customer();
-  customer.id = id;
-  customer.name = name;
+  customer.Id = id;
+  customer.Name = name;
 
   expect.assertions(2);
   expect(customer instanceof Customer).toBeTruthy();
   expect(customer).toMatchObject({
-    _id: expect.any(Number),
-    _name: expect.any(String)
+    id: expect.any(Number),
+    name: expect.any(String)
   });
 });
 
@@ -19,24 +19,24 @@ it('should set and get id', () => {
   const id: number = 1;
   const name: string = 'Uwem';
   const customer: Customer = new Customer();
-  customer.id = id;
-  customer.name = name;
+  customer.Id = id;
+  customer.Name = name;
 
-  customer.id = 2;
+  customer.Id = 2;
 
   expect.assertions(1);
-  expect(customer.id).toEqual(2);
+  expect(customer.Id).toEqual(2);
 });
 
 it('should set and get name', () => {
   const id: number = 1;
   const name: string = 'Uwem';
   const customer: Customer = new Customer();
-  customer.id = id;
-  customer.name = name;
+  customer.Id = id;
+  customer.Name = name;
 
-  customer.name = 'Akan';
+  customer.Name = 'Akan';
 
   expect.assertions(1);
-  expect(customer.name).toEqual('Akan');
+  expect(customer.Name).toEqual('Akan');
 });
