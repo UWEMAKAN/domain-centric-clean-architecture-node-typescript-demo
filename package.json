@@ -1,5 +1,5 @@
 {
-  "name": "api-typescript",
+  "name": "domain-centric-clean-architecture",
   "version": "1.0.0",
   "description": "Api starter kit for typescript",
   "main": "app.ts",
@@ -25,14 +25,6 @@
   ],
   "author": "Uwem Akan Nkereuwem",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UWEMAKAN/api-typescript.git"
-  },
-  "bugs": {
-    "url": "https://github.com/UWEMAKAN/api-typescript/issues"
-  },
-  "homepage": "https://github.com/UWEMAKAN/api-typescript#readme",
   "dependencies": {
     "@types/app-root-path": "1.2.4",
     "@types/body-parser": "1.19.0",
@@ -86,5 +78,13 @@
       "NODE_ENV": "development",
       "PORT": 4500
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UWEMAKAN/domain-centric-clean-architecture-node-typescript-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UWEMAKAN/domain-centric-clean-architecture-node-typescript-demo/issues"
+  },
+  "homepage": "https://github.com/UWEMAKAN/domain-centric-clean-architecture-node-typescript-demo#readme"
 }
