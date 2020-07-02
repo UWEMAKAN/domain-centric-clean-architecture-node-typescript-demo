@@ -1,3 +1,4 @@
+import { Request, Response, NextFunction } from 'express';
 import Sale from '../src/domain/sales/Sale';
 import Customer from '../src/domain/customers/Customer';
 import Employee from '../src/domain/employees/Employee';
@@ -12,7 +13,12 @@ import IInventoryService from '../src/infrastructure/inventory/InventoryService'
 import ISaleRepositoryFacade from '../src/application/sales/commands/createSale/repository/ISaleRepositoryFacade';
 import ISaleFactory from '../src/application/sales/commands/createSale/factory/ISaleFactory';
 import IDateService from '../src/common/DateTime/IDateService';
-import { Connection } from 'typeorm';
+import IGetCustomersListQuery from '../src/application/customers/queries/IGetCustomersListQuery';
+import IGetEmployeesListQuery from '../src/application/employees/queries/IGetEmployeesListQuery';
+import IGetProductsListQuery from '../src/application/products/queries/IGetProductsListQuery';
+import IGetSalesListQuery from '../src/application/sales/queries/getSalesList/IGetSalesListQuery';
+import IGetSaleDetailQuery from '../src/application/sales/queries/getSaleDetail/IGetSaleDetailQuery';
+import ICreateSaleCommand from '../src/application/sales/commands/ICreateSaleCommand';
 
 export const products: Array<Product> = mockData.products.map((p) => {
   const product: Product = new Product();
@@ -140,18 +146,45 @@ export const dateService: IDateService = {
   getDate: jest.fn().mockReturnValue(new Date())
 };
 
-export const connection = new Connection({
-  name: 'test',
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'test',
-  password: 'test',
-  database: 'test',
-  synchronize: true,
-  logging: false,
-  entities: ['src/domain/**/*.ts'],
-  cli: {
-    entitiesDir: 'src/domain'
+export const getCustomersListQuery: IGetCustomersListQuery = {
+  execute: jest.fn().mockReturnValue(Promise.resolve(customers))
+};
+
+export const getEmployeesListQuery: IGetEmployeesListQuery = {
+  execute: jest.fn().mockReturnValue(Promise.resolve(employees))
+};
+
+export const getProductsListQuery: IGetProductsListQuery = {
+  execute: jest.fn().mockReturnValue(Promise.resolve(products))
+};
+
+export const getSalesListQuery: IGetSalesListQuery = {
+  execute: jest.fn().mockReturnValue(Promise.resolve(sales))
+};
+
+export const getSaleDetailQuery: IGetSaleDetailQuery = {
+  execute: jest.fn().mockReturnValue(Promise.resolve(sales[1]))
+};
+
+export const createSaleCommand: ICreateSaleCommand = {
+  execute: jest.fn().mockReturnValue(Promise.resolve())
+};
+
+export const req = {
+  params: {
+    saleId: '1'
+  },
+  body: {
+    customerId: 1,
+    employeeId: 2,
+    productId: 3,
+    quantity: 20
   }
-});
+} as unknown as Request;
+
+export const res = {
+  locals: {},
+  json: jest.fn((object) => Promise.resolve(object))
+} as unknown as Response;
+
+export const next = jest.fn() as NextFunction;
