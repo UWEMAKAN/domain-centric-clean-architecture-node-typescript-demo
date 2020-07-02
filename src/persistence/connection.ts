@@ -11,7 +11,7 @@ const connection = {
   },
 
   async clear() {
-    const connection = getConnection();
+    const connection = getConnection('test')
     const entities = connection.entityMetadatas;
 
     entities.forEach(async (entity) => {

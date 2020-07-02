@@ -12,6 +12,7 @@ import IInventoryService from '../src/infrastructure/inventory/InventoryService'
 import ISaleRepositoryFacade from '../src/application/sales/commands/createSale/repository/ISaleRepositoryFacade';
 import ISaleFactory from '../src/application/sales/commands/createSale/factory/ISaleFactory';
 import IDateService from '../src/common/DateTime/IDateService';
+import { Connection } from 'typeorm';
 
 export const products: Array<Product> = mockData.products.map((p) => {
   const product: Product = new Product();
@@ -118,7 +119,7 @@ export const saleFactory: ISaleFactory = {
     sale.UnitPrice = product.Price;
     return sale;
   })
-}
+};
 
 export const saleRepositoryFacade: ISaleRepositoryFacade = {
   getCustomer: jest.fn((customerId: number) => Promise.resolve(customers[customerId])),
@@ -138,3 +139,19 @@ export const inventoryService: IInventoryService = {
 export const dateService: IDateService = {
   getDate: jest.fn().mockReturnValue(new Date())
 };
+
+export const connection = new Connection({
+  name: 'test',
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'test',
+  password: 'test',
+  database: 'test',
+  synchronize: true,
+  logging: false,
+  entities: ['src/domain/**/*.ts'],
+  cli: {
+    entitiesDir: 'src/domain'
+  }
+});

@@ -1,7 +1,7 @@
 import IDateService from "./IDateService";
 
 class DateService implements IDateService {
-  public GetDate(): Date {
+  public getDate(): Date {
     return new Date();
   }
 }

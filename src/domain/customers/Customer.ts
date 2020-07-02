@@ -5,7 +5,7 @@ import IEntity from '../common/IEntity';
 class Customer implements IEntity {
   @PrimaryGeneratedColumn()
   private id: number;
-  
+
   @Column()
   private name: string;
 

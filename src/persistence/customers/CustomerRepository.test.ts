@@ -1,30 +1,14 @@
-import { createConnection } from 'typeorm';
 import Customer from '../../domain/customers/Customer';
-import connection from '../connection';
 import CustomerRepository from './CustomerRepository';
-import * as mockEntities from '../../../tools/mockEntities';
+import AbstractRepository from '../shared/Repository';
+import { createConnection } from 'typeorm';
 
 describe('CustomerRepository', () => {
-  // beforeAll(async () => {
-  //   await connection.create();
-  // });
-
-  // afterAll(async () => {
-  //   await connection.close();
-  // });
-
-  // beforeEach(async () => {
-  //   await connection.clear();
-  // });
-
-  // it('create customer', async (done) => {
-  //   const customer: Customer = mockEntities.customers[1];
-  //   const connectionName: string = 'test';
-  //   const repository: CustomerRepository = new CustomerRepository(createConnection, connectionName);
-  //   await repository.add(customer);
-  //   done();
-  // });
-  it('should ', () => {
-
+  it('should return a CustomerRepository object', () => {
+    const repository = new CustomerRepository(Customer, createConnection, 'test');
+    expect.assertions(2);
+    expect(repository).toBeInstanceOf(CustomerRepository);
+    expect(repository).toBeInstanceOf(AbstractRepository);
   });
 });
+

@@ -12,7 +12,8 @@ module.exports = {
   ],
   coveragePathIgnorePatterns: [
     '<rootDir>/src/common',
-    '<rootDir>/src/config'
+    '<rootDir>/src/config',
+    '<rootDir>/tools'
   ],
   // additionals
   clearMocks: true,
