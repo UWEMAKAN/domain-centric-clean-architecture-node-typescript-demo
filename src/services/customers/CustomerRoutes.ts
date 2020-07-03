@@ -1,11 +1,14 @@
-// import { Router } from 'express';
-// import { createConnection } from 'typeorm';
-// import CustomersController from '../../controllers/customers/CustomersController';
+import { Router } from 'express';
+import CustomersController from '../../controllers/customers/CustomersController';
+import IFactory from '../../factory/IFactory';
 
+function router(dependencies: IFactory): Router {
+  const customerRouter: Router = Router();
+  const controller = new CustomersController(dependencies.queryFactory.getCustomersListQuery);
 
-// const router = () => {
-//   const customerRouter: Router = Router();
-//   const controller = new CustomersController(getCustomersListQuery)
-// };
+  customerRouter.route('/')
+    .get(controller.getAll);
+  return customerRouter;
+};
 
-// export default router;
+export default router;
