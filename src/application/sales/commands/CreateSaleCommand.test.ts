@@ -15,7 +15,6 @@ const command : CreateSaleCommand = new CreateSaleCommand(
   mockEntities.dateService,
   mockEntities.saleRepositoryFacade,
   mockEntities.saleFactory,
-  mockEntities.unitOfWork,
   mockEntities.inventoryService
 );
 
@@ -25,14 +24,13 @@ describe('CreateSaleCommand', () => {
   });
   it('execute should add sale to the repository', async (done) => {
     await command.execute(model);
-    expect.assertions(8);
+    expect.assertions(7);
     expect(mockEntities.dateService.getDate).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleRepositoryFacade.addSale).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleRepositoryFacade.getCustomer).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleRepositoryFacade.getEmployee).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleRepositoryFacade.getProduct).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleFactory.create).toHaveBeenCalledTimes(1);
-    expect(mockEntities.unitOfWork.save).toHaveBeenCalledTimes(1);
     expect(mockEntities.inventoryService.notifySaleOcurred).toHaveBeenCalledTimes(1);
     done();
   });

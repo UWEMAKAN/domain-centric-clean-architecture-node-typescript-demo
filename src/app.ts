@@ -3,7 +3,7 @@ import express, { Response, Request } from 'express';
 import logger from './common/Logging/winston';
 import config from './config/appConfig';
 import { createConnection } from 'typeorm';
-import CustomerController from './service/customers/CustomersController';
+import CustomerController from './controllers/customers/CustomersController';
 import GetCustomersListQuery from './application/customers/queries/GetCustomersListQuery';
 import CustomerRepository from './persistence/customers/CustomerRepository';
 import Customer from './domain/customers/Customer';

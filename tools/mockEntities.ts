@@ -8,7 +8,6 @@ import ICustomerRepository from '../src/application/interfaces/persistence/ICust
 import IEmployeeRepository from '../src/application/interfaces/persistence/IEmployeeRespository';
 import IProductRepository from '../src/application/interfaces/persistence/IProductRepository';
 import ISaleRepository from '../src/application/interfaces/persistence/ISaleRepository';
-import IUnitOfWork from '../src/application/interfaces/persistence/IUnitOfWork';
 import IInventoryService from '../src/infrastructure/inventory/InventoryService';
 import ISaleRepositoryFacade from '../src/application/sales/commands/createSale/repository/ISaleRepositoryFacade';
 import ISaleFactory from '../src/application/sales/commands/createSale/factory/ISaleFactory';
@@ -132,10 +131,6 @@ export const saleRepositoryFacade: ISaleRepositoryFacade = {
   getEmployee: jest.fn((employeeId: number) => Promise.resolve(employees[employeeId])),
   getProduct: jest.fn((productId: number) => Promise.resolve(products[productId])),
   addSale: jest.fn((sale: Sale) => Promise.resolve())
-};
-
-export const unitOfWork: IUnitOfWork = {
-  save: jest.fn()
 };
 
 export const inventoryService: IInventoryService = {
