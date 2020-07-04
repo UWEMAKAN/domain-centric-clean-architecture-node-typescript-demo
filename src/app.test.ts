@@ -14,15 +14,15 @@ describe('Server Ok status', () => {
   });
 });
 
-// describe('Testing all else /*', () => {
-//   afterEach(() => {
-//     server.close();
-//   });
-//   test('expect /all-else to return status 404', async (done) => {
-//     expect.assertions(1);
-//     const response: Response = await request(server)
-//       .get('/all-else');
-//     expect(response.status).toEqual(404);
-//     done();
-//   });
-// });
+describe('Testing all else /*', () => {
+  afterEach(() => {
+    server.close();
+  });
+  test('expect /all-else to return status 404', async (done) => {
+    expect.assertions(1);
+    const response: Response = await request(server)
+      .get('/all-else');
+    expect(response.status).toEqual(404);
+    done();
+  });
+});
