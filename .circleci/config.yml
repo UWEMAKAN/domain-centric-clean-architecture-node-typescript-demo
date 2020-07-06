@@ -3,6 +3,12 @@ jobs:
   test:
     docker:
       - image: circleci/node:12.16
+        environment:
+          NODE_ENV: test
+      - image: circleci/postgres:12.3
+        environment:
+          POSTGRES_USER: test
+          POSTGRES_DB: circle_test
     steps:
       - checkout
       - run: echo "Running tests"
