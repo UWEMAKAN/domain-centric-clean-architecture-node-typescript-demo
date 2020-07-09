@@ -8,7 +8,7 @@ describe('GetEmployeesListQuery', () => {
     jest.clearAllMocks();
   });
 
-  it('execute should return an Array of EmployeeModel', async (done) => {
+  it('execute should return an Array of EmployeeModel', async () => {
     const query: GetEmployeesListQuery = new GetEmployeesListQuery(mockEntities.employeeRepository);
     const results = await query.execute();
 
@@ -20,6 +20,5 @@ describe('GetEmployeesListQuery', () => {
       id: expect.any(Number),
       name: expect.any(String)
     });
-    done();
   });
 });

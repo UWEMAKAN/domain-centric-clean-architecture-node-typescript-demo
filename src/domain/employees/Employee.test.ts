@@ -1,6 +1,10 @@
 import Employee from './Employee';
 import * as mockEntities from '../../../tools/mockEntities';
 
+afterAll(() => {
+  jest.clearAllMocks();
+});
+
 it('should create a employee with field id: number and name: string', () => {
   const employee: Employee = mockEntities.employees[1];
 

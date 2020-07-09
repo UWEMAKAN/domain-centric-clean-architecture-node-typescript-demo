@@ -7,7 +7,7 @@ describe('GetCustomersListQuery', () => {
     jest.clearAllMocks();
   });
 
-  it('execute should return an Array of CustomerModel', async (done) => {
+  it('execute should return an Array of CustomerModel', async () => {
     const query: GetCustomersListQuery = new GetCustomersListQuery(mockEntities.customerRepository);
     const results = await query.execute();
 
@@ -19,6 +19,5 @@ describe('GetCustomersListQuery', () => {
       id: expect.any(Number),
       name: expect.any(String)
     });
-    done();
   });
 });

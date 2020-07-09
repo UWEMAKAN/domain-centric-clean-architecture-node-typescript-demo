@@ -22,7 +22,7 @@ describe('CreateSaleCommand', () => {
   afterAll(() => {
     jest.clearAllMocks();
   });
-  it('execute should add sale to the repository', async (done) => {
+  it('execute should add sale to the repository', async () => {
     await command.execute(model);
     expect.assertions(7);
     expect(mockEntities.dateService.getDate).toHaveBeenCalledTimes(1);
@@ -32,6 +32,5 @@ describe('CreateSaleCommand', () => {
     expect(mockEntities.saleRepositoryFacade.getProduct).toHaveBeenCalledTimes(1);
     expect(mockEntities.saleFactory.create).toHaveBeenCalledTimes(1);
     expect(mockEntities.inventoryService.notifySaleOcurred).toHaveBeenCalledTimes(1);
-    done();
   });
 });

@@ -6,15 +6,18 @@ import Sale from '../../../../domain/sales/Sale';
 const query: GetSalesListQuery = new GetSalesListQuery(mockEntities.saleRepository);
 
 describe('GetSalesListQuery', () => {
-  it('should return a list of sales', async (done) => {
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return a list of sales', async () => {
     const results: Array<SalesListItemModel> = await query.execute();
     expect.assertions(2);
     expect(results instanceof Array).toBeTruthy();
     expect(results).toHaveLength(10);
-    done();
   });
 
-  it('should be of type Sale and have properties of Sale and the correct values', async (done) => {
+  it('should be of type Sale and have properties of Sale and the correct values', async () => {
     const results: Array<SalesListItemModel> = await query.execute();
     const result = results[0];
     const sale: Sale = mockEntities.sales[0];
@@ -37,6 +40,5 @@ describe('GetSalesListQuery', () => {
     expect(result.UnitPrice).toEqual(sale.UnitPrice);
     expect(result.Quantity).toEqual(sale.Quantity);
     expect(result.TotalPrice).toEqual(sale.TotalPrice);
-    done();
   });
 });

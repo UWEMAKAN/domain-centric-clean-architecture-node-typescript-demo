@@ -2,12 +2,15 @@ import * as mockEntities from '../../../../../tools/mockEntities';
 import Sale from '../../../../domain/sales/Sale';
 import GetSaleDetailQuery from './GetSaleDetailQuery';
 import SaleDetailModel from './SaleDetailModel';
-import { doesNotMatch } from 'assert';
 
 const query: GetSaleDetailQuery = new GetSaleDetailQuery(mockEntities.saleRepository);
 
 describe('GetSaleDetailQuery', () => {
-  it('should return a Sale object with correct properties and values', async (done) => {
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return a Sale object with correct properties and values', async () => {
     const result: SaleDetailModel = await query.execute(1);
     const sale: Sale = mockEntities.sales[1];
     expect.assertions(9);
@@ -29,6 +32,5 @@ describe('GetSaleDetailQuery', () => {
     expect(result.UnitPrice).toEqual(sale.UnitPrice);
     expect(result.Quantity).toEqual(sale.Quantity);
     expect(result.TotalPrice).toEqual(sale.TotalPrice);
-    done();
   });
 });

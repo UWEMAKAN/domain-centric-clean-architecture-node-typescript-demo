@@ -83,7 +83,7 @@ jobs:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'
           # command: npm run test:cover
-          no_output_timeout: 60m
+          # no_output_timeout: 60m
       # You can specify either a single file or a directory to store as artifacts
       - store_artifacts:
           path: test-results.xml

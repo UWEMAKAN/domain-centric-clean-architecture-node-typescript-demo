@@ -2,7 +2,7 @@ import EmployeesController from './EmployeesController';
 import * as mockEntities from '../../../tools/mockEntities';
 
 describe('EmployeesController', () => {
-  afterEach(async () => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
@@ -16,13 +16,12 @@ describe('EmployeesController', () => {
     });
   });
 
-  it('should call execute, res.json, and return an array of Employee objects', async (done) => {
+  it('should call execute, res.json, and return an array of Employee objects', async () => {
     const results = await controller.getAll(mockEntities.req, mockEntities.res, mockEntities.next);
     expect.assertions(4);
     expect(mockEntities.getEmployeesListQuery.execute).toHaveBeenCalledTimes(1);
     expect(mockEntities.res.json).toHaveBeenCalledTimes(1);
     expect(results).toBeInstanceOf(Array);
     expect(results).toEqual(mockEntities.employees);
-    done();
   });
 });

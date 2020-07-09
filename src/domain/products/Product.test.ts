@@ -1,5 +1,9 @@
 import Product from './Product';
 
+afterAll(() => {
+  jest.clearAllMocks();
+});
+
 it('should create a product with field id: number, name: string, and price: number', () => {
   const id: number = 1;
   const name: string = 'T-Shirt';

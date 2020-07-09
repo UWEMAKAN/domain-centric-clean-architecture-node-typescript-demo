@@ -49,36 +49,36 @@ jest.mock('typeorm', () => ({
 }));
 
 describe('AbstractRepository', () => {
-  beforeEach(async () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+  beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('test add customer', async (done) => {
+  it('test add customer', async () => {
     const repository = new AbstractRepository(Customer, typeorm.createConnection, 'test');
     await repository.add(mockEntities.customers[1]);
     expect.assertions(1);
     expect(typeorm.createConnection).toHaveBeenCalledTimes(1);
-    done();
   });
 
-  it('test remove customer', async (done) => {
+  it('test remove customer', async () => {
     const repository = new AbstractRepository(Customer, typeorm.createConnection, 'test');
     await repository.remove(mockEntities.customers[1]);
     expect.assertions(1);
     expect(typeorm.createConnection).toHaveBeenCalledTimes(1);
-    done();
   });
 
-  it('test get all customers', async (done) => {
+  it('test get all customers', async () => {
     const repository = new AbstractRepository(Customer, typeorm.createConnection, 'test');
     const results = await repository.getAll();
     expect.assertions(3);
     expect(typeorm.createConnection).toHaveBeenCalledTimes(1);
     expect(results).toBeInstanceOf(Array);
     expect(results[0]).toEqual(customer);
-    done();
   });
-  it('test get customer', async (done) => {
+  it('test get customer', async () => {
     const repository = new AbstractRepository(Customer, typeorm.createConnection, 'test');
     const id: number = 1;
     const result = await repository.get(id);
@@ -86,7 +86,5 @@ describe('AbstractRepository', () => {
     expect(typeorm.createConnection).toHaveBeenCalledTimes(1);
     expect(result).toBeInstanceOf(Customer);
     expect(result).toEqual(customer);
-    done();
-    done();
   });
 });

@@ -1,5 +1,9 @@
 import Customer from './Customer';
 
+afterAll(() => {
+  jest.clearAllMocks();
+});
+
 it('should create a customer with field id: number and name: string', () => {
   const id: number = 1;
   const name: string = 'Uwem';

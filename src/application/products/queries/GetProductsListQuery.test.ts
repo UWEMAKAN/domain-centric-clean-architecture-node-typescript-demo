@@ -7,7 +7,7 @@ describe('GetProductsListQuery', () => {
     jest.clearAllMocks();
   });
 
-  it('execute should return an Array of ProductModel', async (done) => {
+  it('execute should return an Array of ProductModel', async () => {
     const query: GetProductsListQuery = new GetProductsListQuery(mockEntities.productRepository);
     const results = await query.execute();
 
@@ -20,6 +20,5 @@ describe('GetProductsListQuery', () => {
       name: expect.any(String),
       price: expect.any(Number)
     });
-    done();
   });
 });

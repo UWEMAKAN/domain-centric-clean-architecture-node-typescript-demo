@@ -2,7 +2,7 @@ import SalesController from './SalesController';
 import * as mockEntities from '../../../tools/mockEntities';
 
 describe('SalesController', () => {
-  afterEach(async () => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
@@ -25,30 +25,27 @@ describe('SalesController', () => {
     });
   });
 
-  it('getAll should call execute, res.json and return an array of Sale objects', async (done) => {
+  it('getAll should call execute, res.json and return an array of Sale objects', async () => {
     const results = await controller.getAll(mockEntities.req, mockEntities.res, mockEntities.next);
     expect.assertions(4);
     expect(mockEntities.getSalesListQuery.execute).toHaveBeenCalledTimes(1);
     expect(mockEntities.res.json).toHaveBeenCalledTimes(1);
     expect(results).toBeInstanceOf(Array);
     expect(results).toEqual(mockEntities.sales);
-    done();
   });
 
-  it('getById should call execute, res.json and return a Sale object', async (done) => {
+  it('getById should call execute, res.json and return a Sale object', async () => {
     const results = await controller.getById(mockEntities.req, mockEntities.res, mockEntities.next);
     expect.assertions(3);
     expect(mockEntities.getSaleDetailQuery.execute).toHaveBeenCalledTimes(1);
     expect(mockEntities.res.json).toHaveBeenCalledTimes(1);
     expect(results).toEqual(mockEntities.sales[1]);
-    done();
   });
 
-  it('create should call execute, res.json', async (done) => {
+  it('create should call execute, res.json', async () => {
     const results = await controller.create(mockEntities.req, mockEntities.res, mockEntities.next);
     expect.assertions(2);
     expect(mockEntities.createSaleCommand.execute).toHaveBeenCalledTimes(1);
     expect(mockEntities.res.json).toHaveBeenCalledTimes(1);
-    done();
   });
 });

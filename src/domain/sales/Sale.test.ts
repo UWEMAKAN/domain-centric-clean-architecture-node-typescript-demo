@@ -3,25 +3,11 @@ import Employee from '../employees/Employee';
 import Product from '../products/Product';
 import Sale from './Sale';
 
-const customerId: number = 1;
-const customerName: string = 'Kufre';
-const customer: Customer = new Customer();
-
-const employeeId: number = 1;
-const employeeName: string = 'Daniel';
-const employee: Employee = new Employee();
-
-const productId: number = 1;
-const productName: string = 'Snickers';
-const productPrice: number = 200;
-const product: Product = new Product();
-
-const date: Date = new Date();
-const id: number = 1;
-const quantity: number = 5;
-const unitPrice: number = product.Price;
-
 describe('Sale', () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   it('should create a sale object that is instance of the Sale class', () => {
     const sale = new Sale();
 

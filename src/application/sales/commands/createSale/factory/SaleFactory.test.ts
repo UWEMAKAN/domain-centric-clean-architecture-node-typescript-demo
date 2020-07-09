@@ -14,6 +14,10 @@ const price = 225;
 const date: Date = new Date();
 
 describe('SaleFactory', () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+  
   it('should create a Sale object', () => {
     const sale: Sale = factory.create(date, customer, employee, product, quantity);
     expect.assertions(6);
