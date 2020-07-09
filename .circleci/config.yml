@@ -58,11 +58,11 @@ jobs:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
       - image: cimg/node:current
       # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
-      - image: postgres:12.3
-        environment:
-          POSTGRES_USER: test
-          POSTGRES_PASSWORD: test
-          POSTGRES_DB: test
+      # - image: postgres:12.3
+      #   environment:
+      #     POSTGRES_USER: test
+      #     POSTGRES_PASSWORD: test
+      #     POSTGRES_DB: test
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -98,4 +98,3 @@ workflows:
       - test:
           requires:
             - build
-
