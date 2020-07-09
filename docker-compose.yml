@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  # Backend API
+  clean_architecture:
+    container_name: api_container
+    build: ./
+    command: npm start
+    working_dir: /usr/src/backend_api
+    environment:
+      POSTGRES_URI: postgres://test:test@postgres:5432/clean_architecture
+      POSTGRES_URI_TEST: postgres://test:test@postgres:5432/test
+    links:
+      - postgres_main
+      - postgres-test
+    ports:
+      - "4000:4000"
+      - "4500:4500"
+    volumes:
+      - ./:/usr/src/backend_api
+
+  # PostgreSQL DB
+  postgres_main:
+    container_name: postgres_container
+    image: postgres:12.3
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB_NAME: clean_architecture
+    ports:
+      - "5432:5432"
+  postgres_test:
+    container_name: postgres_test
+    image: postgres:12.3
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB_NAME: test
+    ports:
+      - "5432:5432"
+
+

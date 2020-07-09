@@ -16,7 +16,7 @@
     "test:watch": "jest --watch --detectOpenHandles",
     "test:cover": "jest --coverage",
     "lint": "eslint \"src/**/*.ts\"",
-    "gen:docs": "npx jsdoc ./src/**/**/*.js -d './dist/public/docs'"
+    "gen:docs": "npx jsdoc ./src/**/**/*.ts -d './dist/public/docs'"
   },
   "keywords": [
     "TypeScript",
@@ -73,7 +73,7 @@
     "ignore": [
       "node-modules/**/node_modules"
     ],
-    "delay": "5000",
+    "delay": "10000",
     "env": {
       "NODE_ENV": "development",
       "PORT": 4500
